@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-nginx-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-nginx-2
+  template:
+    metadata:
+      labels:
+        app: hello-nginx-2
+    spec:
+      containers:
+        - name: hello-nginx-2
+          image: docker.io/nginx:latest
+          ports:
+            - containerPort: 80
